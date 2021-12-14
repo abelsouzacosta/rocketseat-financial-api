@@ -1,0 +1,9 @@
+{
+  "name": "financial-api",
+  "version": "1.0.0",
+  "description": "this is the first application built in the rocketseat nodejs bootcamp",
+  "main": "index.js",
+  "repository": "git@github.com:abelsouzacosta/rocketseat-financial-api.git",
+  "author": "Abel Souza <abelsouzacosta@gmail.com>",
+  "license": "MIT"
+}
