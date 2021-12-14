@@ -17,9 +17,9 @@
 
 ### Regras de negócio
 
-- [] Não deve ser possível cadastrar uma conta com o CPF já existente
-- [] Não deve ser possível fazer um deposito numa conta não existente
-- [] Não deve ser possível buscar o extrato numa conta não existente
-- [] Não deve ser possível fazer saque de uma conta não existente
-- [] Não deve ser possível excluir uma conta não existente
-- [] Não deve ser possível fazer um saque de um valor maior do que o saldo da conta
+- [ ] Não deve ser possível cadastrar uma conta com o CPF já existente
+- [ ] Não deve ser possível fazer um deposito numa conta não existente
+- [ ] Não deve ser possível buscar o extrato numa conta não existente
+- [ ] Não deve ser possível fazer saque de uma conta não existente
+- [ ] Não deve ser possível excluir uma conta não existente
+- [ ] Não deve ser possível fazer um saque de um valor maior do que o saldo da conta
