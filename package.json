@@ -6,6 +6,9 @@
   "repository": "git@github.com:abelsouzacosta/rocketseat-financial-api.git",
   "author": "Abel Souza <abelsouzacosta@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./src/index.js"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "uuid": "^8.3.2"
