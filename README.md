@@ -11,7 +11,7 @@
 - [x] Deve ser possível realizar um saque
 - [x] Deve ser possível atualizar os dados da conta do cliente
 - [x] Deve ser possível obter os dados da conta do cliente
-- [ ] Deve ser possível deletar uma conta
+- [x] Deve ser possível deletar uma conta
 
 ---
 
@@ -21,5 +21,5 @@
 - [x] Não deve ser possível fazer um deposito numa conta não existente
 - [x] Não deve ser possível buscar o extrato numa conta não existente
 - [x] Não deve ser possível fazer saque de uma conta não existente
-- [ ] Não deve ser possível excluir uma conta não existente
+- [x] Não deve ser possível excluir uma conta não existente
 - [x] Não deve ser possível fazer um saque de um valor maior do que o saldo da conta
