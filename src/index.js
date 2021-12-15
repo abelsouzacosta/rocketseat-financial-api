@@ -53,6 +53,20 @@ app.post('/account', (req, res) => {
   return res.status(201).json(customers);
 });
 
+app.put('/account', verifyIfExistsAccountCPF, (req, res) => {
+  const { customer } = req;
+  const { name } = req.body;
+
+  if (!name) 
+    return res.status(403).json({
+      message: "Please eneter a valid name"
+    });
+
+  customer.name = name;
+
+  return res.status(201).json(customer);
+});
+
 app.get('/statement', verifyIfExistsAccountCPF, (req, res) => {
   const { customer } = req;
 
