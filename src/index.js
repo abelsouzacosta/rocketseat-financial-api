@@ -27,4 +27,21 @@ app.post('/account', (req, res) => {
   return res.status(201).json(customers);
 });
 
+app.get('/statement/:cpf', (req, res) => {
+  const { cpf } = req.params;
+
+  const customer = customers.find(customer => customer.cpf === cpf);
+
+  if (!customer)
+    return res.status(404).json({
+      message: "Not found",
+    });
+
+  return res.status(200).json({
+    name: customer.name,
+    cpf: customer.cpf,
+    statement: customer.statement
+  });
+});
+
 app.listen(3030);
