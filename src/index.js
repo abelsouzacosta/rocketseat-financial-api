@@ -75,7 +75,20 @@ app.get('/account', verifyIfExistsAccountCPF, (req, res) => {
 
 app.get('/account/all', (req, res) => {
   return res.status(200).json(customers);
-})
+});
+
+app.delete('/account', verifyIfExistsAccountCPF, (req, res) => {
+  const { customer } = req;
+
+  const index = customers.indexOf(customer);
+
+  customers.splice(index, 1);
+
+  return res.status(200).json({
+    removed: index,
+    customers
+  });
+});
 
 app.get('/statement', verifyIfExistsAccountCPF, (req, res) => {
   const { customer } = req;
