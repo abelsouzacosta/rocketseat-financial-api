@@ -63,6 +63,22 @@ app.get('/statement', verifyIfExistsAccountCPF, (req, res) => {
   });
 });
 
+app.get('/statement/date', verifyIfExistsAccountCPF, (req, res) => {
+  const { date } = req.query;
+  const { customer } = req;
+
+  const dateFormat = new Date(date + ' 00:00');
+
+  let result = customer.statement.filter(element => element.created_at.toDateString() === new Date(dateFormat).toDateString());
+
+  if (!result)
+    return res.status(400).json({
+      message: "There's no statement with the given date"
+    });
+
+  return res.status(200).json(result);
+})
+
 app.post('/deposit', verifyIfExistsAccountCPF, (req, res) => {
   const { description, amount } = req.body;
   const { customer } = req;
