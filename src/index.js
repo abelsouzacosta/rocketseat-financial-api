@@ -23,6 +23,16 @@ function verifyIfExistsAccountCPF(req, res, next) {
   return next();
 }
 
+// retrives the total balance of an account
+function getTotalBalance(statement) {
+  return statement.reduce((acc, operation) => {
+    if (operation.type === 'credit')
+      return acc + operation.amount;
+    else 
+      return acc - operation.amount;
+  }, 0);
+}
+
 app.post('/account', (req, res) => {
   const { name, cpf } = req.body;
 
@@ -63,6 +73,29 @@ app.post('/deposit', verifyIfExistsAccountCPF, (req, res) => {
     created_at: new Date(),
     type: 'credit'
   };
+
+  customer.statement.push(statementOperation);
+
+  return res.status(201).json(customer);
+});
+
+app.post('/withdraw', verifyIfExistsAccountCPF, (req, res) => {
+  const { amount } = req.body;
+  const { customer } = req;
+
+  // obtem o total de saldo ded uma determinada conta
+  const totalBalance = getTotalBalance(customer.statement);
+
+  if (amount > totalBalance)
+    return res.status(400).json({
+      message: "Not allowed - insufficient resources"
+    });
+
+  const statementOperation = {
+    amount,
+    created_at: new Date(),
+    type: 'debit'
+  }
 
   customer.statement.push(statementOperation);
 
